@@ -62,7 +62,7 @@ Real-Estate-Booking-Management-System/
 Clone the repository:
 
 ```bash
-git clone https://github.com/sharanya200224/Real-Estate-Booking-Management-System.git
+git clone https://github.com/Ananaya222/Real-Estate-Booking-Management-System.git
 ```
 
 Go to the project folder:
@@ -146,10 +146,10 @@ http://127.0.0.1:8000/
 
 ## 👩‍💻 Author
 
-**Sharanya B**
+**Ananya B**
 
 GitHub:
-https://github.com/sharanya200224
+https://github.com/Ananaya222
 
 ---
 

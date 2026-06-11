@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="card agreement-card shadow-lg border-0 position-relative overflow-hidden">
+
+        <!-- Watermark Background -->
+
+        <div class="watermark">
+            <img src="{% static 'images/house.jpg' %}" alt="">
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="content-area p-5">
+
+            <!-- Header -->
+
+            <div class="text-center mb-5">
+
+                <div class="agreement-icon mb-3">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                </div>
+
+                <h1 class="fw-bold text-uppercase agreement-title">
+                    Property Agreement
+                </h1>
+
+                <p class="lead text-dark">
+                    Legal Agreement Between First Party and Second Party
+                </p>
+
+                <hr class="w-25 mx-auto">
+
+            </div>
+
+            <!-- Property Details -->
+
+            <div class="section-box mb-5">
+
+                <h3 class="section-title text-dark">
+                    <i class="bi bi-house-door-fill"></i>
+                    Property Details
+                </h3>
+
+                <table class="table table-bordered align-middle">
+
+                    <tr>
+                        <th>Property Name</th>
+                        <td>{{ agreement.property_detail.name }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Owner Name</th>
+                        <td>{{ agreement.first_party_name }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Property Area</th>
+                        <td>{{ agreement.property_detail.area }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Property Price</th>
+                        <td>₹ {{ agreement.property_detail.price }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Stamp Paper Value</th>
+                        <td>₹ {{ agreement.stamp_paper_price }}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- First Party -->
+
+            <div class="section-box mb-5">
+
+                <h3 class="section-title text-dark">
+                    <i class="bi bi-person-fill"></i>
+                    First Party Details
+                </h3>
+
+                <table class="table table-bordered align-middle">
+
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ agreement.first_party_name }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{ agreement.phone }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ agreement.email }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ agreement.address }}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Second Party -->
+
+            <div class="section-box mb-5">
+
+                <h3 class="section-title text-dark">
+                    <i class="bi bi-person-badge-fill"></i>
+                    Second Party Details
+                </h3>
+
+                <table class="table table-bordered align-middle">
+
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ agreement.secondary_party_name }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{ agreement.secondary_phone }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ agreement.secondary_email }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ agreement.secondary_address }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Advance Amount Paid</th>
+                        <td>₹ {{ agreement.advance_amount }}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Declaration -->
+
+            <div class="declaration-box mb-5">
+
+                <h3 class="text-center mb-4 fw-bold">
+                    AGREEMENT DECLARATION
+                </h3>
+
+                <p class="agreement-text">
+
+                    This Agreement certifies that the property
+                    <strong>{{ agreement.property_detail.name }}</strong>,
+                    situated at
+                    <strong>{{ agreement.property_detail.area }}</strong>,
+                    legally belongs to
+                    <strong>{{ agreement.first_party_name }}</strong>.
+
+                    The First Party hereby agrees to transfer, rent, lease,
+                    or permit occupation of the above property to
+                    <strong>{{ agreement.secondary_party_name }}</strong>.
+
+                    The Second Party has paid an advance amount of
+                    <strong>₹ {{ agreement.advance_amount }}</strong>
+                    towards the property transaction.
+
+                    Both parties mutually agree to all terms and conditions
+                    mentioned in this agreement and acknowledge that the
+                    information furnished above is true and correct.
+
+                    This agreement remains valid according to applicable
+                    property laws and regulations.
+
+                </p>
+
+            </div>
+
+            <!-- Signatures -->
+
+            <div class="row text-center mt-5">
+
+                <div class="col-md-6">
+
+                    <div class="signature-box">
+
+                        <br><br><br>
+
+                        __________________________
+
+                        <br>
+
+                        <strong>
+                            First Party Signature
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="signature-box">
+
+                        <br><br><br>
+
+                        __________________________
+
+                        <br>
+
+                        <strong>
+                            Second Party Signature
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Print Button -->
+
+            <div class="text-center mt-5">
+
+                <button onclick="window.print()"
+                        class="btn btn-dark btn-lg px-5 rounded-pill shadow">
+
+                    <i class="bi bi-printer-fill"></i>
+                    Print Agreement
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+body{
+    background:#f5f5f5;
+}
+
+.agreement-card{
+    border-radius:30px;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(3px);
+}
+
+/* WATERMARK */
+
+.watermark{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+.watermark img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.18;
+    filter:grayscale(10%);
+}
+
+/* MAIN CONTENT */
+
+.content-area{
+    position:relative;
+    z-index:1;
+}
+
+/* HEADER */
+
+.agreement-icon{
+    font-size:70px;
+    color:#222;
+}
+
+.agreement-title{
+    letter-spacing:4px;
+    color:#111;
+}
+
+/* SECTIONS */
+
+.section-box{
+    background:rgba(255,255,255,0.60);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.08);
+}
+
+.section-title{
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+/* TABLE */
+
+.table{
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.table th{
+    background:rgba(255,255,255,0.55) !important;
+    color:#222;
+    width:35%;
+    font-size:16px;
+    font-weight:700;
+}
+
+.table td{
+    background:rgba(255,255,255,0.45) !important;
+    font-weight:500;
+    color:#111;
+}
+
+/* DECLARATION */
+
+.declaration-box{
+    background:rgba(255,255,255,0.65);
+    padding:35px;
+    border-radius:20px;
+    line-height:35px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.08);
+}
+
+.agreement-text{
+    text-align:justify;
+    font-size:18px;
+    color:#111;
+}
+
+/* SIGNATURE */
+
+.signature-box{
+    margin-top:50px;
+    font-size:18px;
+    font-weight:500;
+    color:#111;
+}
+
+/* BUTTON */
+
+.btn-dark{
+    padding:12px 40px;
+    font-weight:bold;
+}
+
+/* PRINT */
+
+@media print{
+
+    .btn{
+        display:none;
+    }
+
+    .watermark img{
+        opacity:0.22;
+    }
+
+    body{
+        background:white;
+    }
+
+}
+
+</style>
+
+{% endblock %}
